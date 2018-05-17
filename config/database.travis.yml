@@ -1,0 +1,5 @@
+test: &test
+  adapter: postgresql
+  encoding: utf8
+  database: sa-rails_test
+  username: postgres
