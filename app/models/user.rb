@@ -1,11 +1,8 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-	validates_presence_of :first_name
-	validates_presence_of :last_name
-
- 	 # Include default devise modules. Others available are:
- 	 # :lockable, :timeoutable and :omniauthable
- 	 devise :database_authenticatable, :registerable,
- 	        :recoverable, :rememberable, :trackable, :validatable
-
-
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end
