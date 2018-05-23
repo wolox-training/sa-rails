@@ -50,8 +50,10 @@ group :development, :test do
   gem 'scss_lint'
   gem 'rspec-rails'
   gem 'database_cleaner'
+  gem 'shoulda'
+  gem 'shoulda-matchers', require: false
   gem 'faker'
-  gem 'factory_bot'
+  gem "factory_bot_rails", "~> 4.0"
 end
 
 group :development do
