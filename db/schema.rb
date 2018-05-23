@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2018_05_21_143703) do
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
-    t.string "genre"
-    t.string "author"
-    t.string "image"
-    t.string "tittle"
-    t.string "publisher"
-    t.string "year"
+    t.string "genre", default: "", null: false
+    t.string "author", default: "", null: false
+    t.string "image", default: "", null: false
+    t.string "title", default: "", null: false
+    t.string "publisher", default: "", null: false
+    t.string "year", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 2018_05_21_143703) do
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.boolean "allow_password_change", default: false
@@ -42,9 +45,6 @@ ActiveRecord::Schema.define(version: 2018_05_21_143703) do
     t.string "name"
     t.string "nickname"
     t.string "image"
-    t.string "email"
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
