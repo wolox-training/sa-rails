@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '812446e8196fad541598c1c0ba62c8d61b953f2669a5025a4d63f8b2c44e867368d8b8108dd53553d1a4c79df39b3ab7364d2477e5ee435008608b096e776946'
+  config.secret_key = '812446e8196fad541598c1c0ba62c8d61b953f2669a5025a4d63f8b2c44e867368d8b8108dd53553d1a4c79df39b3ab7364d2477e5ee435008608b096e776946'
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -142,7 +142,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
