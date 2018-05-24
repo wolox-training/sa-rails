@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
-  :rents
+  has_many :rents, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :omniauthable
