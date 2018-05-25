@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 describe Book, type: :model do
-
   subject(:book) { create(:book) }
 
   it { should validate_presence_of(:genre) }
