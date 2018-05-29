@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-describe Api::V1::BooksController, type: :controller do
+
+describe BooksController, type: :controller do
   include_context 'Authenticated User'
 
   describe 'GET #index' do
