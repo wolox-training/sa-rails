@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class Rent < ApplicationRecord
+  validate :valid_date
   validates :user, :book, :from, :to, presence: true
-  validates_date :to, after: :from, after_message: 'must be after the "from" date'
   belongs_to :user
   belongs_to :book
+
+  def valid_date
+    return errors.add(:to, "can't be before from") if from > to
+    true
+  end
 end
