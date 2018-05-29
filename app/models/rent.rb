@@ -8,6 +8,5 @@ class Rent < ApplicationRecord
 
   def valid_date
     return errors.add(:to, "can't be before from") if from > to
-    true
   end
 end
