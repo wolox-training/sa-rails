@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2018_05_23_230926) do
   end
 
   create_table "rents", force: :cascade do |t|
-    t.bigint "user_id", default: 0, null: false
-    t.bigint "book_id", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
     t.date "from", null: false
     t.date "to", null: false
     t.datetime "created_at", null: false
