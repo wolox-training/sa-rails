@@ -7,8 +7,7 @@ class Rent < ApplicationRecord
   belongs_to :book
 
   def valid_date
-    if from > to
-    	errors.add(:to, "can't be before from")
-    end
+    return errors.add(:to, "can't be before from") if from > to
+    true
   end
 end
