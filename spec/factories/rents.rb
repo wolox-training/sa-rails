@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :rent do
-    user { user_id }
+    user { create(:user) }
     book { book_id }
     from { Faker::Date.forward(1) }
     to { from.next_day }
