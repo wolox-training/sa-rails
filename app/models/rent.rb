@@ -7,6 +7,6 @@ class Rent < ApplicationRecord
   belongs_to :book
 
   def valid_date
-    errors.add(:to, "Rent end date must be after starting date") if from > to
+    errors.add(:to, 'Rent end date must be after starting date') if from > to
   end
 end
