@@ -7,7 +7,7 @@ class BooksController < ApplicationController
     render json: Book.all.page
   end
 
-  def show 
+  def show
     render json: Book.find(params[:id])
   end
 end
