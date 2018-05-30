@@ -4,12 +4,10 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    books = Book.all.page(1)
-    render json: books
+    render json: Book.all.page
   end
 
-  def show
-    book = Book.find(params[:id])
-    render json: book
+  def show 
+    render json: Book.find(params[:id])
   end
 end
