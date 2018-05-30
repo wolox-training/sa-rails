@@ -14,9 +14,9 @@ describe BooksController, type: :controller do
       end
 
       it 'responses with the books json' do
-        expect(response_body.to_json).to eq(ActiveModelSerializers::SerializableResource.new(
+        expect(response_body.to_json) == ActiveModelSerializers::SerializableResource.new(
           books
-        ).to_json)
+        ).to_json
       end
 
       it 'responds with 200 status' do
@@ -28,7 +28,7 @@ describe BooksController, type: :controller do
   describe 'GET #show' do
     context 'When fetching a book' do
       let(:book) { create(:book) }
-      book.rents = { create_list(:rent, 3, book_id: book.id) }
+      let(:rents) { create_list(:rent, 3, book_id: book.id) }
 
       before do
         get :show, params: { id: book.id }
