@@ -35,7 +35,6 @@ describe BooksController, type: :controller do
       end
 
       it 'responses with the book json' do
-        byebug
         expect(response_body.to_json).to eq ActiveModelSerializers::SerializableResource.new(
           book, root: false
         ).to_json
