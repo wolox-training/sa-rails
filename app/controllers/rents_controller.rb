@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
 class RentsController < ApplicationController
-	protect_from_forgery with: :null_session
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
-    rents = Rent.all.page(1)
-    render json: rents
+    render json: Rent.all.page(params[:page])
   end
 
   def create
-    rent = Rent.new(params[:rents])
-    # rent.save
+    rent = Rent.new(rent_params)
+    rent.save
     render json: rent
+  end
+
+  private
+  def rent_params
+    params.require(:rent).permit(:user_id, :book_id, :from, :to)
   end
 end
