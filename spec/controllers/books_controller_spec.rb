@@ -7,14 +7,14 @@ describe BooksController, type: :controller do
 
   describe 'GET #index' do
     context 'When fetching all the books' do
-      let(:books) { create_list(:book, 20) }
+      let!(:books) { create_list(:book, 20) }
 
       before do
         get :index
       end
 
       it 'responses with the books json' do
-        expect(response_body.to_json) == ActiveModelSerializers::SerializableResource.new(
+        expect(response_body.to_json).to eq ActiveModelSerializers::SerializableResource.new(
           books
         ).to_json
       end
