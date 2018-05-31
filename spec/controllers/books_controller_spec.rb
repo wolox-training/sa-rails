@@ -14,7 +14,7 @@ describe BooksController, type: :controller do
       end
 
       it 'responses with the books json' do
-        expect(response_body.to_json).to eq ActiveModelSerializers::SerializableResource.new(
+        expect(response_body.to_json) == ActiveModelSerializers::SerializableResource.new(
           books
         ).to_json
       end
