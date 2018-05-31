@@ -14,6 +14,7 @@ class RentsController < ApplicationController
   end
 
   private
+
   def rent_params
     params.require(:rent).permit(:user_id, :book_id, :from, :to)
   end
