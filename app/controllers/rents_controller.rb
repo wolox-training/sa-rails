@@ -9,8 +9,10 @@ class RentsController < ApplicationController
 
   def create
     rent = Rent.new(rent_params)
-    rent.save
-    render json: rent
+    if rent.save
+      RentMailer.new_rent_notification(rent.user).deliver
+      render json: rent
+    end
   end
 
   private
