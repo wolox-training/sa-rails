@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class BooksController < ApplicationController
-  before_action :authenticate_user!
+class BooksController < ApiController
 
   def index
     render json: Book.all.page(params[:page])
