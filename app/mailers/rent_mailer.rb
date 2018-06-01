@@ -8,6 +8,7 @@ class RentMailer < ApplicationMailer
   #
   def new_rent_notification(user)
     @greeting = 'Hi'
+    byebug
     mail to: user.email
   end
 end

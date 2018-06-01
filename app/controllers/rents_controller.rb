@@ -10,7 +10,7 @@ class RentsController < ApplicationController
   def create
     rent = Rent.new(rent_params)
     if rent.save
-      RentMailer.new_rent_notification(rent.user).deliver
+      HardWorker.perform_async(rent.user)
       render json: rent
     end
   end

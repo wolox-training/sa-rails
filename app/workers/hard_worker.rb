@@ -3,7 +3,8 @@
 class HardWorker
   include Sidekiq::Worker
 
-  def perform(*args)
-    # Do something
+  def perform(user)
+    puts "HardWorker"
+    RentMailer.new_rent_notification(user).deliver
   end
 end
