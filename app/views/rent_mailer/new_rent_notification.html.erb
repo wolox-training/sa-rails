@@ -1,5 +1,29 @@
-<h1>Rent#new_rent_notification</h1>
+<h1>Notificación de Alquiler</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/rent_mailer/new_rent_notification.html.erb
+  Fecha de solicitud del Alquiler: <%= @rent.created_at %>
+</p>
+
+<p>
+  Detalles del Libro: <%= @rent.book.title %>
+</p>
+<p>
+  Genero: <%= @rent.book.genre %>
+</p>
+<p>
+  Autor: <%= @rent.book.author %>
+</p>
+<p>
+  Editorial: <%= @rent.book.publisher %>
+</p>
+<p>
+  Año de Publicación: <%= @rent.book.year %>
+</p>
+
+<p>
+  Alquiler Desde: <%= @rent.from %>
+</p>
+
+<p>
+  Hasta: <%= @rent.to %>
 </p>

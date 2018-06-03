@@ -6,9 +6,9 @@ class RentMailer < ApplicationMailer
   #
   #   en.rent_mailer.new_rent_notification.subject
   #
-  def new_rent_notification(user)
-    @greeting = 'Hi'
-    byebug
-    mail to: user.email
+  def new_rent_notification(rent)
+    @rent = rent
+
+    mail to: rent.user.email, subject: "Success! You did it."
   end
 end

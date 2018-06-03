@@ -28,7 +28,7 @@ describe BooksController, type: :controller do
   describe 'GET #show' do
     context 'When fetching a book' do
       let(:book) { create(:book) }
-      let(:rents) { create_list(:rent, 3, book_id: book.id) }
+      let(:rents) { create_list(:rent, 3, book: book) }
 
       before do
         get :show, params: { id: book.id }
