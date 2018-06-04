@@ -8,8 +8,8 @@ class RentsController < ApiController
   def create
     rent = Rent.new(rent_params)
     if rent.save
-      HardWorker.perform_async(rent)
-      # RentMailer.new_rent_notification(rent).deliver
+      #HardWorker.perform_async(rent)
+      RentMailer.new_rent_notification(rent).deliver
       render json: rent
     elsif rent.book_id.nil? || rent.user_id.nil? || rent.to.nil? || rent.from.nil?
       render json: { status: 'error',
