@@ -9,12 +9,8 @@ class RentsController < ApiController
     rent = Rent.new(rent_params)
     if rent.save
       render json: rent
-    elsif rent.book_id.nil? || rent.user_id.nil? || rent.to.nil? || rent.from.nil?
-      render json: { status: 'error',
-                     code: 400,
-                     message: "Can't save a rent, one or more parameters of the request are null" }
     else
-      render json: { status: 'error', code: 500, message: "Can't save a rent" }
+      render json: { errors: rent.errors.messages }
     end
   end
 
