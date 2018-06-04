@@ -8,11 +8,10 @@ class RentsController < ApiController
   def create
     rent = Rent.new(rent_params)
     if rent.save
-      #HardWorker.perform_async(rent)
-      RentMailer.new_rent_notification(rent).deliver
-      render status: :created, json: { message: 'Successfully created rent.' }
+      HardWorker.perform_mail_async(rent)
+      render json: rent, status: :created
     else
-      render status: :bad_request, json: { errors: rent.errors.messages }
+      render json: { errors: rent.errors.messages }, status: :bad_request
     end
   end
 
