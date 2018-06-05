@@ -3,7 +3,7 @@
 class HardWorker
   include Sidekiq::Worker
 
-  def perform_mail(rent)
-    RentMailer.new_rent_notification(rent).deliver
+  def perform(rent_id)
+    RentMailer.new_rent_notification(rent_id).deliver
   end
 end
