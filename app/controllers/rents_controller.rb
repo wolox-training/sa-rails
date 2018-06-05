@@ -2,7 +2,9 @@
 
 class RentsController < ApiController
   def index
-    render json: Rent.all.page(params[:page])
+    render json: Rent.where(user: params[:user_id]).or(
+      Rent.where(book: params[:book_id])
+    ).page(params[:page])
   end
 
   def create
