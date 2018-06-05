@@ -8,9 +8,9 @@ class RentsController < ApiController
   def create
     rent = Rent.new(rent_params)
     if rent.save
-      render status: :created, json: { message: 'Successfully created rent.' }
+      render json: rent, status: :created
     else
-      render status: :bad_request, json: { errors: rent.errors.messages }
+      render json: rent.errors.messages, status: :bad_request
     end
   end
 
