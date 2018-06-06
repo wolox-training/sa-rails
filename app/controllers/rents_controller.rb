@@ -2,21 +2,18 @@
 
 class RentsController < ApiController
   def index
-    render json: Rent.all.page(params[:page])
+    render json: Rent.where(user: params[:user_id]).or(
+      Rent.where(book: params[:book_id])
+    ).page(params[:page])
   end
 
   def create
     rent = Rent.new(rent_params)
     if rent.save
-      # HardWorker.perform_async(rent)
-      RentMailer.new_rent_notification(rent).deliver
-      render json: rent
-    elsif rent.book_id.nil? || rent.user_id.nil? || rent.to.nil? || rent.from.nil?
-      render json: { status: 'error',
-                     code: 400,
-                     message: "Can't save a rent, one or more parameters of the request are null" }
+      HardWorker.perform_async(rent.id)
+      render json: rent, status: :created
     else
-      render json: { status: 'error', code: 500, message: "Can't save a rent" }
+      render json: { errors: rent.errors.messages }, status: :bad_request
     end
   end
 

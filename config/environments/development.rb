@@ -31,9 +31,23 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.perform_deliveries = true
 
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :domain => Rails.application.secrets.mailer_domain,
+    :password => Rails.application.secrets.mailer_password,
+    :user_name => Rails.application.secrets.mailer_user_name,
+    :address => Rails.application.secrets.mailer_address,
+    :port => Rails.application.secrets.mailer_port,
+    :authentication => :plain,
+    :openssl_verify_mode => 'none',
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -58,15 +72,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    :domain => Rails.application.secrets.mailer_domain,
-    :password => Rails.application.secrets.mailer_password,
-    :user_name => Rails.application.secrets.mailer_user_name,
-    :address => Rails.application.secrets.mailer_address,
-    :port => Rails.application.secrets.mailer_port,
-    :authentication => :plain,
-  }
 end
