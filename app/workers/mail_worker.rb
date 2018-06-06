@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HardWorker
+class MailWorker
   include Sidekiq::Worker
 
   def perform(rent_id)
