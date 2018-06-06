@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApiController
-
   def create
     rent = Rent.new(rent_params)
     if rent.save
