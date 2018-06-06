@@ -1,25 +1,25 @@
-<h1><%= t Notificación de Alquiler %></h1>
+<h1><%= t('rent_notification') %></h1>
 
 <p>
-  <%= t Fecha de solicitud del Alquiler %>: <%= @rent.created_at %>
-</p>
-
-<p>
-  <%= t Detalles del Libro %>: <%= @rent.book.title %>
-</p>
-<p>
-  <%= t Genero %>: <%= @rent.book.genre %>
-</p>
-<p>
-  <%= t Autor %>: <%= @rent.book.author %>
-</p>
-<p>
-  <%= t Editorial %>: <%= @rent.book.publisher %>
-</p>
-<p>
-  <%= t Año de Publicación %>: <%= @rent.book.year %>
+  <%= t('rent_createdAt') %>: <%= @rent.created_at %>
 </p>
 
 <p>
-  <%= t Alquiler Desde %>: <%= l @rent.from %> - <%= t Hasta %>: <%= l @rent.to %>
+  <%= t('book_details') %>: <%= @rent.book.title %>
+</p>
+<p>
+  <%= t('book_genre') %>: <%= @rent.book.genre %>
+</p>
+<p>
+  <%= t('book_author') %>: <%= @rent.book.author %>
+</p>
+<p>
+  <%= t('book_publisher') %>: <%= @rent.book.publisher %>
+</p>
+<p>
+  <%= t('book_year') %>: <%= @rent.book.year %>
+</p>
+
+<p>
+  <%= t('rent_from') %>: <%= @rent.from %> - <%= t('rent_to') %>: <%= @rent.to %>
 </p>
