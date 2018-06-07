@@ -2,13 +2,12 @@
 
 class RentsController < ApiController
   def index
-    render json: Rent.where(user: params[:user_id]).or(
-      Rent.where(book: params[:book_id])
-    ).page(params[:page])
+    render json: Rent.filter(params.slice(:user, :book)).page(params[:page])
   end
 
   def create
     rent = Rent.new(rent_params)
+    rent.user = current_user
     if rent.save
       render json: rent, status: :created
     else
@@ -19,6 +18,6 @@ class RentsController < ApiController
   private
 
   def rent_params
-    params.require(:rent).permit(:user_id, :book_id, :from, :to)
+    params.require(:rent).permit(:book_id, :from, :to)
   end
 end
