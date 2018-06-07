@@ -2,7 +2,7 @@
 
 class RentsController < ApiController
   def index
-    render json: Rent.filter(params.slice(:user, :book)).page(params[:page])
+    render json: Rent.filter(params.slice(current_user, :book)).page(params[:page])
   end
 
   def create
