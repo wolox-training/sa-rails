@@ -5,5 +5,4 @@ class Book < ApplicationRecord
 
   has_many :rents, dependent: :destroy
   has_many :books_suggestions, dependent: :destroy
-
 end
