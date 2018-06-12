@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
-class BooksSuggestionsController < ApplicationController
+class BookSuggestionsController < ApplicationController
+  respond_to :html, :json
+
+  def new
+    @nn_book_suggestion = BookSuggestions.new
+  end
+
   def create
     book_suggestions = BookSuggestions.new(book_suggestions_params)
     if book_suggestions.save
