@@ -1,0 +1,15 @@
+es:
+  rent:
+    rent: "Alquiler"
+    rent_notification: "Notificación de Alquiler"
+    rent_createdAt: "Fecha de solicitud"
+    rent_from: "Alquiler desde"
+    rent_to: "Hasta"
+  book:
+    book: "Libro"
+    book_details: "Detalles del Libro"
+    book_genre: "Genero"
+    book_title: "Titulo"
+    book_author: "Autor"
+    book_publisher: "Editorial"
+    book_year: "Año de Publicación"

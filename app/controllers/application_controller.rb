@@ -2,8 +2,10 @@
 
 class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
-  protect_from_forgery with: :null_session
   include Pundit
+
+  protect_from_forgery with: :null_session
+
   before_action :set_locale
 
   def set_locale
