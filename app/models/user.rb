@@ -10,4 +10,11 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :omniauthable
+
+  # This method is added to avoid the confirmation of 'devise' while the final solution is found
+  protected
+
+  def confirmation_required?
+    false
+  end
 end
