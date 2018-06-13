@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  validates :first_name, :last_name, :locale, presence: true
+  include DeviseTokenAuth::Concerns::User
+
+  validates :first_name, :last_name, presence: true
+  validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, presence: true
 
   has_many :rents, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :omniauthable
 
-  include DeviseTokenAuth::Concerns::User
+  # This method is added to avoid the confirmation of 'devise' while the final solution is found
+  protected
+
+  def confirmation_required?
+    false
+  end
 end
