@@ -1,6 +1,0 @@
-es:
-  rent: "Alquiler"
-  rent_notification: "Notificación de Alquiler"
-  rent_createdAt: "Fecha de solicitud"
-  rent_from: "Alquiler desde"
-  rent_to: "Hasta"

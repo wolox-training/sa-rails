@@ -20,13 +20,17 @@ describe BooksSuggestionsController, type: :controller do
     end
 
     context 'When creating an invalid book_suggestions' do
-      let!(:book_suggestion) { create(:book_suggestions, user: nil) }
+      let!(:book_suggestion) do
+        bs = FactoryBot.build(:book_suggestions, author: '')
+        bs.save(validate: false)
+        bs
+      end
 
       before do
         post :create, params: { book_suggestions: book_suggestion.attributes }
       end
 
-      it 'doesn\'t create a book_suggestions' do
+      it 'doesn\'t create a new rent' do
         expect do
           post :create, params: { book_suggestions: book_suggestion.attributes }
         end.to change { BookSuggestions.count }.by(0)
