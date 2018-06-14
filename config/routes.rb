@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :rent, only: [:create]
   end
-  resources :books_suggestions, only: [:create]
-  get '/book_suggestions/new', to: 'book_suggestions#new'
+  resources :book_suggestions, only: [:create, :new]
 
   get '/users/:user_id/rents', to: 'rents#index'
   get '/books/:book_id/rents', to: 'rents#index'

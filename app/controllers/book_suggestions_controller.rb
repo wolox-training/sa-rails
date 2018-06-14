@@ -4,15 +4,19 @@ class BookSuggestionsController < ApplicationController
   respond_to :html, :json
 
   def new
-    @nn_book_suggestion = BookSuggestions.new
+    @book_suggestion = BookSuggestions.new
   end
 
   def create
-    book_suggestions = BookSuggestions.new(book_suggestions_params)
-    if book_suggestions.save
-      render json: book_suggestions, status: :created
-    else
-      render json: { errors: book_suggestions.errors.messages }, status: :bad_request
+    @book_suggestions = BookSuggestions.new(book_suggestions_params)
+    respond_to do |format|
+      if @book_suggestions.save
+        format.html {  }
+        format.json { render json: @book_suggestions, status: :created }
+      else
+        format.html {  }
+        format.json { render json: { errors: @book_suggestions.errors.messages }, status: :bad_request }
+      end
     end
   end
 

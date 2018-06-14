@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Book Suggestions</title></head>
+  <body>
+    <%= form_with(model: @book_suggestions) do |form| %>
+     <p>
+      <%= form.label :editorial %><br>
+      <%= form.text_field :editorial %>
+    </p>
+    <p>
+      <%= form.label :price %><br>
+      <%= form.text_field :price %>
+    </p>
+    <p>
+      <%= form.label :author %><br>
+      <%= form.text_field :author %>
+    </p>
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </p>
+    <p>
+      <%= form.label :link %><br>
+      <%= form.text_field :link %>
+    </p>
+    <p>
+      <%= form.label :publisher %><br>
+      <%= form.text_field :publisher %>
+    </p>
+    <p>
+      <%= form.label :year %><br>
+      <%= form.text_field :year %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+    <% end %>
+
+    <script type='text/javascript'>
+      $(function(){
+        $("form").submit(function(){
+          event.preventDefault();
+          $.ajax({type: "POST",
+            url: this.action
+            data: { editorial: $('#editorial').val(), price: $('#price').val(), author: $('#author').val(), title: $('#title').val(), link: $('#link').val(), publisher: $('#publisher').val(), year: $('#year').val() }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
