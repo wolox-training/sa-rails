@@ -8,9 +8,10 @@ class RentsController < ApiController
   def create
     rent = Rent.new(rent_params)
     if rent.save
+      MailWorker.perform_async(rent.id)
       render json: rent, status: :created
     else
-      render json: rent.errors.messages, status: :bad_request
+      render json: { errors: rent.errors.messages }, status: :bad_request
     end
   end
 

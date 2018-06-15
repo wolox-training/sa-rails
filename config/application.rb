@@ -1,10 +1,14 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'action_mailer/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+require 'dotenv'
+Dotenv.load
 
 module WBooks
   class Application < Rails::Application

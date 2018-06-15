@@ -1,0 +1,29 @@
+<h1>Notificación de Alquiler</h1>
+
+<p>
+  Fecha de solicitud del Alquiler: <%= @rent.created_at %>
+</p>
+
+<p>
+  Detalles del Libro: <%= @rent.book.title %>
+</p>
+<p>
+  Genero: <%= @rent.book.genre %>
+</p>
+<p>
+  Autor: <%= @rent.book.author %>
+</p>
+<p>
+  Editorial: <%= @rent.book.publisher %>
+</p>
+<p>
+  Año de Publicación: <%= @rent.book.year %>
+</p>
+
+<p>
+  Alquiler Desde: <%= @rent.from %>
+</p>
+
+<p>
+  Hasta: <%= @rent.to %>
+</p>
