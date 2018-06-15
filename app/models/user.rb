@@ -8,13 +8,6 @@ class User < ApplicationRecord
 
   has_many :rents, dependent: :destroy
 
-  devise :database_authenticatable, :registerable, :recoverable,
+  devise :database_authenticatable, :registerable, :recoverable, :confirmable,
          :rememberable, :trackable, :validatable, :omniauthable
-
-  # This method is added to avoid the confirmation of 'devise' while the final solution is found
-  protected
-
-  def confirmation_required?
-    false
-  end
 end
