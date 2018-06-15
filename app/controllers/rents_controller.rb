@@ -7,7 +7,6 @@ class RentsController < ApiController
 
   def create
     rent = Rent.new(rent_params)
-    rent.user = User.find(params[:user_id])
     if rent.save
       MailWorker.perform_async(rent.id)
       render json: rent, status: :created
@@ -19,6 +18,7 @@ class RentsController < ApiController
   private
 
   def rent_params
-    params.require(:rent).permit(:book_id, :from, :to)
+    params[:rent][:user_id] = current_user.id
+    params.require(:rent).permit(:book_id, :from, :to, :user_id)
   end
 end
