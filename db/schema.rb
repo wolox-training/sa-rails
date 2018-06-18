@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2018_06_15_195608) do
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "locale", default: "en", null: false
-    t.string "confirmation_token"
+    t.text "locale", default: "en", null: false
+    t.text "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
