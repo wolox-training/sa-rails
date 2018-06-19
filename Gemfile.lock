@@ -139,6 +139,7 @@ GEM
       has_scope (~> 0.6)
       railties (>= 4.2, <= 5.2)
       responders
+    interactor (3.1.1)
     io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -344,12 +345,13 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
-  devise
-  devise_token_auth
+  devise (~> 4.4, >= 4.4.3)
+  devise_token_auth (~> 0.1.36)
   dotenv
-  dotenv-rails
-  factory_bot_rails (~> 4.0)
-  faker
+  dotenv-rails (~> 2.4)
+  factory_bot_rails (~> 4.8, >= 4.8.2)
+  faker (~> 1.6, >= 1.6.6)
+  interactor (~> 3.0)
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
@@ -357,17 +359,17 @@ DEPENDENCIES
   parser
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
-  pundit
+  pundit (~> 1.1)
   rails (~> 5.2.0)
   rspec
-  rspec-rails
+  rspec-rails (~> 3.4, >= 3.4.2)
   rubocop
   sass-rails (~> 5.0)
   scss-lint
   selenium-webdriver
   shoulda
   shoulda-matchers
-  sidekiq
+  sidekiq (~> 5.1, >= 5.1.3)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
