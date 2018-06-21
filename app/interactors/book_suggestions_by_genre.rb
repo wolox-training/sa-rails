@@ -4,17 +4,19 @@ class BookSuggestionsByGenre
   include Interactor
 
   def call
-    genre = Book.find(context.book_id).genre
-    books_by_genre = Book.filter(genre: genre).to_a
-    context.books = filter_leased_books(books_by_genre, context.user, genre)
+    context.books = Book.where(genre:
+      get_genre(context.book_id)).where.not(id: get_book_ids(context.user))
+  rescue StandardError => e
+    context.fail!(message: e)
   end
 
-  def filter_leased_books(all_books, user, genre)
-    if user.rents.present?
-      user.rents.each do |r|
-        all_books.delete(r.book) if r.book.genre == genre
-      end
-    end
-    all_books
+  def get_book_ids(user)
+    user.rents.pluck(:book_id).uniq
+  end
+
+  def get_genre(book_id)
+    genre = Book.find(book_id).genre
+    context.fail!(message: 'Book has no gender') if genre.nil?
+    genre
   end
 end
