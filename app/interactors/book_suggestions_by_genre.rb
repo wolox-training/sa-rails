@@ -18,7 +18,7 @@ class BookSuggestionsByGenre
     genre = Book.find(book_id).genre
     context.fail!(message: 'Book unless genre') if genre.nil?
     genre
-  end)
+  end
 
   def user
     @user ||= context.user
