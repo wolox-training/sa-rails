@@ -16,6 +16,12 @@ class RentsController < ApiController
     end
   end
 
+  def show
+    rent = Rent.find(params['rent_id'])
+    authorize rent
+    render json: rent
+  end
+
   private
 
   def rent_params
