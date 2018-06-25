@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :show]
   resources :users do
-    resource :rent, only: [:create]
+    resource :rent, only: [:create, :show]
   end
 
   get '/users/:user_id/rents', to: 'rents#index'
