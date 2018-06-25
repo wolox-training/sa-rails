@@ -4,8 +4,8 @@ class BookSuggestionsByGenre
   include Interactor
 
   def call
-    context.fail!(message: 'Book id is null') if context.book_id.nil?
-    context.books = Book.where(genre: genre).where.not(id: book_ids)
+    context.fail!(message: 'Book no has genre') unless book.genre
+    context.books = Book.where(genre: book.genre).where.not(id: book_ids)
   end
 
   private
@@ -14,17 +14,12 @@ class BookSuggestionsByGenre
     user.rents.pluck(:book_id).uniq
   end
 
-  def genre
-    genre = Book.find(book_id).genre
-    context.fail!(message: 'Book unless genre') if genre.nil?
-    genre
-  end
-
   def user
     @user ||= context.user
   end
 
-  def book_id
-    @book_id ||= context.book_id
+  def book
+    context.fail!(message: 'Book id is null') unless context.book_id
+    @book ||= Book.find(context.book_id)
   end
 end

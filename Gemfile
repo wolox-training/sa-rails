@@ -62,7 +62,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec'
   gem 'rubocop'
-  gem 'scss-lint'
+  gem 'scss_lint'
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'database_cleaner'
   gem 'shoulda'
