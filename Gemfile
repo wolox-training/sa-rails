@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.4.2'
 
@@ -37,9 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'devise'
+gem 'devise', '~> 4.4', '>= 4.4.3'
 
-gem 'devise_token_auth'
+gem 'devise_token_auth', '~> 0.1.36'
 
 gem 'omniauth'
 
@@ -47,27 +47,29 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'kaminari'
 
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.1', '>= 5.1.3'
 
 gem 'activeadmin'
 
 gem 'parser'
 
-gem 'pundit'
+gem 'pundit', '~> 1.1'
+
+gem 'interactor', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec'
   gem 'rubocop'
-  gem 'scss-lint'
-  gem 'rspec-rails'
+  gem 'scss_lint'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'database_cleaner'
   gem 'shoulda'
   gem 'shoulda-matchers', require: false
-  gem 'faker'
-  gem "factory_bot_rails", "~> 4.0"
-  gem 'dotenv-rails'
+  gem 'faker', '~> 1.6', '>= 1.6.6'
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+  gem 'dotenv-rails', '~> 2.4'
   gem 'dotenv'
 end
 

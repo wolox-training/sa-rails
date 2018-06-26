@@ -4,12 +4,12 @@ class ApiController < ApplicationController
   include Pundit
   include DeviseTokenAuth::Concerns::SetUserByToken
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
   protect_from_forgery with: :null_session
 
   before_action :authenticate_user!
   before_action :verify_user
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
 
