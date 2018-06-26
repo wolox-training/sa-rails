@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :book_suggestions, only: [:create]
 
+  get '/:book_id/suggestions', to: 'books#suggestions'
   get '/users/:user_id/rents', to: 'rents#index'
   get '/books/:book_id/rents', to: 'rents#index'
 end
