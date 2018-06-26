@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :book_suggestions do
+  factory :book_suggestion do
     editorial { Faker::Book.publisher }
     price { Faker::Commerce.price }
     author { Faker::Book.author }
