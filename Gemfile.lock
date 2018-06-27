@@ -131,6 +131,8 @@ GEM
       actionpack (>= 4.1)
       activesupport (>= 4.1)
     hashie (3.5.7)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     inherited_resources (1.8.0)
@@ -179,6 +181,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nio4r (2.3.1)
     nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
@@ -349,6 +352,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.4)
   factory_bot_rails (~> 4.8, >= 4.8.2)
   faker (~> 1.6, >= 1.6.6)
+  httparty
   interactor (~> 3.0)
   jbuilder (~> 2.5)
   kaminari
