@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_06_15_195608) do
     t.string "name"
     t.string "nickname"
     t.string "image"
-    t.json "tokens", default: {}
+    t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "locale", default: "en", null: false
