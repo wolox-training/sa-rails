@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name, null: false, default: ""
 
       ## Tokens
-      t.json :tokens
+      t.json :tokens, default: {}
 
       t.timestamps
     end
