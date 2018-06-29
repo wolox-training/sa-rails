@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :rents, dependent: :destroy
 
-  devise :database_authenticatable, :registerable, :recoverable, :confirmable,
+  devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :omniauthable
 
   protected
