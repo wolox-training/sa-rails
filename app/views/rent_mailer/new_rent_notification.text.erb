@@ -1,7 +1,8 @@
-Notificación de Alquiler
-
-Fecha de solicitud del Alquiler: <%= @rent.created_at %>
-Detalles del Libro: <%= @rent.book %>
-Detalles del Aquiler:
-Desde: <%= @rent.from %>
-Hasta: <%= @rent.to %>
+<%= t :rent_notification %>
+<%= t :rent_createdAt %>: <%= @rent.created_at %>
+<%= t :book_details %>: <%= @rent.book.title %>
+<%= t :book_genre %>: <%= @rent.book.genre %>
+<%= t :book_author %>: <%= @rent.book.author %>
+<%= t :book_publisher %>: <%= @rent.book.publisher %>
+<%= t :book_year %>: <%= @rent.book.year %>
+<%= t :rent_from %>: <%= @rent.from %> - <%= t :rent_to %>: <%= @rent.to %>

@@ -3,7 +3,7 @@
 class RentMailer < ApplicationMailer
   def new_rent_notification(rent)
     @rent = rent
-
-    mail to: @rent.user.email, subject: 'Rent notification'
+    I18n.locale = @rent.user.locale
+    mail to: @rent.user.email, subject: t(:rent_notification)
   end
 end
