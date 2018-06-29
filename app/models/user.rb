@@ -11,8 +11,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :confirmable,
          :rememberable, :trackable, :validatable, :omniauthable
 
+  protected
+
   # Alternative Solution. Issue: https://github.com/lynndylanhurley/devise_token_auth/issues/1079
-  def tokens_has_json_column_type?
+  def confirmation_required?
     false
   end
 end
